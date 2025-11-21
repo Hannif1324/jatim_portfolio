@@ -1,0 +1,219 @@
+/* style.css - PERBAIKAN UNTUK NAVBAR */
+/* Custom scrollbar dan animasi */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading spinner */
+.loading-spinner {
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* NAVBAR FIXES */
+.sticky {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+}
+/* pastikan gambar tidak bikin celah putih: */
+.card-img {
+    display: block; /* hilangkan whitespace bawah dari inline img */
+    object-position: center;
+}
+
+
+/* optional: border radius konsisten jika parent rounding gagal */
+.card > .relative > .card-img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+/* kalau kamu masih lihat garis putih tipis di atas gambar, paksa antialias */
+img {
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Pastikan backdrop blur bekerja */
+.bg-white\\/80 {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark .bg-gray-800\\/80 {
+    background-color: rgba(31, 41, 55, 0.8) !important;
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Pastikan z-index bekerja */
+.z-50 {
+    z-index: 50 !important;
+}
+
+/* Pastikan navbar di atas semua konten */
+header {
+    z-index: 1000 !important;
+}
+
+/* Fix untuk mobile menu */
+#mobile-menu {
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.dark #mobile-menu {
+    background: rgba(31, 41, 55, 0.95) !important;
+}
+
+/* Pastikan search results di atas konten */
+#search-results {
+    z-index: 1001 !important;
+}
+
+/* Logo Responsive Styles */
+@media (max-width: 640px) {
+    .flex.items-center.space-x-3 img {
+        height: 32px !important;
+    }
+    
+    .border-l.border-gray-300.pl-3 {
+        padding-left: 8px !important;
+    }
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+    .grid.grid-cols-1.md\:grid-cols-3 {
+        gap: 2rem;
+    }
+    
+    .flex.flex-col.md\:flex-row {
+        text-align: center;
+    }
+}
+
+/* Smooth transitions for logos */
+img {
+    transition: transform 0.2s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Modal Locasi Styles */
+.modal-locasi {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-container {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .modal-container {
+        margin: 1rem;
+        max-height: 85vh;
+    }
+    
+    .modal-content {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .modal-container {
+        margin: 2rem;
+        max-width: 90vw;
+    }
+}
+
+/* Info Item Styles */
+.info-item {
+    padding: 0.75rem;
+    background: rgba(243, 244, 246, 0.5);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.dark .info-item {
+    background: rgba(55, 65, 81, 0.3);
+    border-color: rgba(75, 85, 99, 0.5);
+}
+
+/* Map Container */
+.map-container {
+    transition: transform 0.2s ease;
+}
+
+.map-container:hover {
+    transform: translateY(-2px);
+}
+
+/* Scrollbar Styling for Modal */
+.modal-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.dark .modal-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .modal-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.custom-notification {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawa Timur Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+            colors: {
+                primary: { "50": "#eff6ff", "100": "#dbeafe", "200": "#bfdbfe", "300": "#93c5fd", "400": "#60a5fa", "500": "#3b82f6", "600": "#2563eb", "700": "#1d4ed8", "800": "#1e40af", "900": "#1e3a8a" }
+            }
+            }
+        }
+        }
+    </script>
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- LocalBase -->
+    <script src="https://unpkg.com/localbase@0.7.5/dist/localbase.dev.js"></script>
+    
+    <!-- NAVBAR FIX STYLES -->
+    <style>
+        /* Force sticky navbar */
+        .sticky {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 0 !important;
+        }
+        
+        /* Force backdrop blur */
+        .backdrop-blur-sm {
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+        }
+        
+        /* Force z-index */
+        .z-50 {
+            z-index: 50 !important;
+        }
+        
+        /* Navbar specific */
+        header {
+            z-index: 1000 !important;
+        }
+        
+        /* Mobile menu background */
+        #mobile-menu {
+            background: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        .dark #mobile-menu {
+            background: rgba(31, 41, 55, 0.95) !important;
+        }
+    </style>
+</head>
+<body class="h-full bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- App Container -->
+    <div id="app" class="min-h-full">
+    <div id="notification-root" class="pointer-events-none fixed top-0 right-0 left-0 z-[9999]"></div>
+        <!-- Loading initial -->
+        <div id="loading" class="flex items-center justify-center min-h-screen">
+            <div class="text-center">
+                <div class="loading-spinner mx-auto mb-4"></div>
+                <p class="text-gray-600 dark:text-gray-400">Memuat Data...</p>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
